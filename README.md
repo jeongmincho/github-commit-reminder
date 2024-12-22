@@ -1,8 +1,20 @@
 # GitHub Commit Email Reminder Script
 
-A simple Python script that checks if you've made any GitHub commits today and sends you an email reminder if you haven't.
+A simple Python script that checks if you've made any GitHub commits today and sends you an email reminder if you haven't. Built with the intention to help you maintain a daily coding habit and stay accountable.
 
-## Setup Instructions
+## Features
+- Checks your GitHub commits for the current day
+- Sends an email reminder if no commits are found
+- Easily customizable email content through `EMAIL_CONFIG` at the top of `app.py`:
+  ```python
+  EMAIL_CONFIG = {
+      'from_name': 'Git Commit Police 👮',  # Change the sender's display name
+      'subject': 'GitHub Commit Reminder',   # Change the email subject
+      'template': "Just a friendly reminder."  # Change the email message
+  }
+  ```
+
+## How to use
 
 ### 1. Python Setup
 Make sure you have Python 3.x installed. You can check by running:
@@ -59,17 +71,8 @@ To deactivate the virtual environment when you're done:
 deactivate
 ```
 
-## Features
-- Checks your GitHub commits for the current day
-- Sends an email reminder if no commits are found
-- Easily customizable email content through `EMAIL_CONFIG` at the top of `app.py`:
-  ```python
-  EMAIL_CONFIG = {
-      'from_name': 'Git Commit Police 👮',  # Change the sender's display name
-      'subject': 'GitHub Commit Reminder',   # Change the email subject
-      'template': "Just a friendly reminder..."  # Change the email message
-  }
-  ```
+### 5. Automated Daily Checks (Recommended)
+For automatic daily checks, deploy to [Render](https://render.com) as a background worker with a cron job scheduled for your preferred time (e.g., 10 PM PST). This ensures you get reminders without having to run the script manually.
 
-## Note
+## Troubleshooting
 Make sure to use an app-specific password for Gmail, as regular passwords won't work with SMTP.
